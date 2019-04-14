@@ -4,7 +4,6 @@ public class Player {
 
     public Player(String a){
         this.name = a;
-
     }
 
     // public Player(String name){
