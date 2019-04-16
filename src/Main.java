@@ -13,6 +13,7 @@ public class Main {
         Player player1 = new Player(player1Name);
         Player player2 = new Player(player2Name);
 
+
         MyTicTacToe myTicTacToe = new MyTicTacToe(player1,player2);
         myTicTacToe.playGame();
         

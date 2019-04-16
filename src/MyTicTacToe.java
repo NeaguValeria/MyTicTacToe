@@ -51,6 +51,15 @@ public class MyTicTacToe {
         game[move.line][move.col] = symbol;
     }
 
+    public boolean validare (Move move){
+        if (game[move.line][move.col] !=  '.') {
+            System.out.println("incearca alta pozitie");
+            System.out.println();
+            return false;
+        }
+        return true;
+    }
+
     public boolean isWinLine(int line, char symbol) {
         boolean isWin = true;
         int i = 0;
@@ -139,7 +148,7 @@ public class MyTicTacToe {
             System.out.println(move.line);
             System.out.println(move.col);
             //validez mutarea
-
+            move = validezSiInscriu(move);
             //efectuez mutare
             makeMove(move, currentSymbol);
             showGamee();
@@ -169,6 +178,28 @@ public class MyTicTacToe {
         } else {
             System.out.println("nu a cistigat nimeni");
         }
+        restartGame();
+    }
+
+    private void restartGame() {
+        System.out.println("Dorit sa jucate? Yes/no");
+        Scanner scanner = new Scanner(System.in);
+        String response = scanner.nextLine();
+        if(response.toLowerCase().equals("yes")){
+            playGame();
+        }
+    }
+
+    private Move validezSiInscriu(Move move) {
+
+        boolean valid= false;
+        while (valid != true){
+            valid = validare(move);
+            if(valid == false){
+                move = readMove();
+            }
+        }
+        return move;
     }
 }
 
